@@ -9,7 +9,7 @@ export const translations = {
     about: {
       title: "About MediLingua",
       body: `MediLingua is the multilingual healthcare platform making it easy to connect patients with doctors who speak their language.
-With support for Dutch, English, French, Italian, Russian, Armenian, Bulgarian, and Turkish, we’re breaking barriers in European healthcare.`,
+With support for Dutch, English, French, Italian, Russian, Armenian, Bulgarian, and Turkish, we're breaking barriers in European healthcare.`,
     },
     contact: {
       title: "Contact MediLingua",
@@ -191,7 +191,36 @@ Felemenkçe, İngilizce, Fransızca, İtalyanca, Rusça, Ermenice, Bulgarca ve T
       tagline: "Найдите врача, говорящего на вашем языке.",
       findDoctor: "Найти врача",
     },
-    // ... (Add rest as above for other categories & languages)
+    about: {
+      title: "О MediLingua",
+      body: `MediLingua — это многоязычная платформа здравоохранения, которая облегчает связь пациентов с врачами, говорящими на их языке.
+С поддержкой нидерландского, английского, французского, итальянского, русского, армянского, болгарского и турецкого языков мы преодолеваем барьеры в европейском здравоохранении.`,
+    },
+    contact: {
+      title: "Связаться с MediLingua",
+      body: "Есть вопрос или хотите связаться? Заполните форму, и мы свяжемся с вами!",
+      name: "Ваше имя",
+      email: "Ваш email",
+      message: "Ваше сообщение",
+      send: "Отправить сообщение"
+    },
+    navbar: {
+      home: "Главная",
+      about: "О нас",
+      findDoctors: "Найти врачей",
+      contact: "Контакты",
+    },
+    findDoctors: {
+      title: "Найти врача или специалиста",
+      subtitle: "Поиск врачей по языку, специальности и местоположению.",
+      search: "Искать врачей",
+      specialty: "Специальность",
+      namePlaceholder: "Имя врача или клиники",
+      locationPlaceholder: "Местоположение",
+      specialtyPlaceholder: "Специальность",
+      language: "Язык",
+      searchResults: "Результаты поиска появятся здесь."
+    }
   },
   hy: {
     home: {
@@ -199,7 +228,36 @@ Felemenkçe, İngilizce, Fransızca, İtalyanca, Rusça, Ermenice, Bulgarca ve T
       tagline: "Գտեք բժիշկների, ովքեր խոսում են ձեր լեզվով։",
       findDoctor: "Գտնել բժշկի",
     },
-    // ... (Add other categories as above)
+    about: {
+      title: "MediLingua-ի մասին",
+      body: `MediLingua-ն բազմալեզու առողջապահական հարթակ է, որը հեշտացնում է հիվանդների կապը իրենց լեզվով խոսող բժիշկների հետ:
+Հոլանդերեն, անգլերեն, ֆրանսերեն, իտալերեն, ռուսերեն, հայերեն, բուլղարերեն և թուրքերեն լեզուների աջակցությամբ մենք կոտրում ենք եվրոպական առողջապահության խոչընդոտները:`,
+    },
+    contact: {
+      title: "Կապ MediLingua-ի հետ",
+      body: "Հարց ունե՞ք կամ ցանկանում եք կապ հաստատել: Լրացրեք ձևը, և մենք կկապվենք ձեզ հետ:",
+      name: "Ձեր անունը",
+      email: "Ձեր էլ-փոստը",
+      message: "Ձեր հաղորդագրությունը",
+      send: "Ուղարկել հաղորդագրություն"
+    },
+    navbar: {
+      home: "Գլխավոր",
+      about: "Մեր մասին",
+      findDoctors: "Գտնել բժիշկներ",
+      contact: "Կապ",
+    },
+    findDoctors: {
+      title: "Գտեք բժիշկ կամ մասնագետ",
+      subtitle: "Փնտրեք բժիշկներ ըստ լեզվի, մասնագիտության և ձեր գտնվելու վայրի:",
+      search: "Փնտրել բժիշկներ",
+      specialty: "Մասնագիտություն",
+      namePlaceholder: "Բժշկի կամ կլինիկայի անուն",
+      locationPlaceholder: "Գտնվելու վայր",
+      specialtyPlaceholder: "Մասնագիտություն",
+      language: "Լեզու",
+      searchResults: "Որոնման արդյունքները կհայտնվեն այստեղ:"
+    }
   },
   bg: {
     home: {
@@ -207,7 +265,35 @@ Felemenkçe, İngilizce, Fransızca, İtalyanca, Rusça, Ermenice, Bulgarca ve T
       tagline: "Намерете лекари, които говорят вашия език.",
       findDoctor: "Намерете вашия лекар",
     },
-    // ... (Add other categories as above)
+    about: {
+      title: "За MediLingua",
+      body: `MediLingua е многоезичната здравна платформа, която улеснява връзката между пациенти и лекари, говорещи техния език.
+С поддръжка за холандски, английски, френски, италиански, руски, арменски, български и турски, ние премахваме бариерите в европейското здравеопазване.`,
+    },
+    contact: {
+      title: "Връзка с MediLingua",
+      body: "Имате въпрос или искате да се свържете? Попълнете формуляра и ние ще се свържем с вас!",
+      name: "Вашето име",
+      email: "Вашият имейл",
+      message: "Вашето съобщение",
+      send: "Изпрати съобщение"
+    },
+    navbar: {
+      home: "Начало",
+      about: "За нас",
+      findDoctors: "Намери лекар",
+      contact: "Контакт",
+    },
+    findDoctors: {
+      title: "Намерете лекар или специалист",
+      subtitle: "Търсете лекари по език, специалност и вашето местоположение.",
+      search: "Търсене на лекари",
+      specialty: "Специалност",
+      namePlaceholder: "Име на лекар или клиника",
+      locationPlaceholder: "Местоположение",
+      specialtyPlaceholder: "Специалност",
+      language: "Език",
+      searchResults: "Резултатите от търсенето ще се появят тук."
+    }
   }
 };
-// For brevity, only 'home' is fully done for ru, hy, bg but you can extend similarly!
