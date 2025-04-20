@@ -43,31 +43,6 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-rose-50 to-sky-50">
-      <header className="fixed w-full top-0 z-50">
-        <div className="backdrop-blur-md bg-white/80 border-b shadow-sm">
-          <div className="container flex h-16 items-center justify-between py-4">
-            <div className="flex items-center gap-2">
-              <Globe className="h-6 w-6 text-primary" />
-              <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">
-                MediLingua
-              </h1>
-            </div>
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Home</a>
-              <a href="#" className="text-sm font-medium hover:text-primary transition-colors">About</a>
-              <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Find Doctors</a>
-              <a href="#" className="text-sm font-medium hover:text-primary transition-colors">Contact</a>
-            </nav>
-            <div className="flex items-center gap-4">
-              <Button variant="ghost" size="sm">Login</Button>
-              <Button size="sm" className="bg-gradient-to-r from-primary to-indigo-600 hover:from-primary/90 hover:to-indigo-600/90">
-                Sign Up
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="mt-16">
         <section className="py-20 md:py-28 bg-gradient-to-br from-rose-50 via-sky-50 to-indigo-50">
           <div className="container px-4 md:px-6">
