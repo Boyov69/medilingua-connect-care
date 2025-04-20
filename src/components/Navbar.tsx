@@ -1,17 +1,21 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { Globe, Languages } from "lucide-react";
+import { Globe } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Find Doctors", path: "/find-doctors" },
-  { name: "Contact", path: "/contact" },
+  { name: "home", path: "/" },
+  { name: "about", path: "/about" },
+  { name: "findDoctors", path: "/find-doctors" },
+  { name: "contact", path: "/contact" },
 ];
 
 export default function Navbar() {
   const location = useLocation();
+  const { language } = useLanguage();
+
   return (
     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[96vw] max-w-4xl">
       <div className="backdrop-blur-xl bg-white/80 rounded-full border shadow-lg flex items-center justify-between px-3 py-2">
@@ -32,7 +36,7 @@ export default function Navbar() {
                   : "text-foreground hover:bg-primary/10"
               }`}
             >
-              {link.name}
+              {translations[language].navbar[link.name]}
             </Link>
           ))}
         </nav>
