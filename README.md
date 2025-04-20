@@ -1,73 +1,125 @@
-# Welcome to your Lovable project
 
-## Project info
+# MediLingua: Breaking Language Barriers in Healthcare
 
-**URL**: https://lovable.dev/projects/83a19564-d0f6-4352-8e53-8ab938972410
+## 🌍 About MediLingua
 
-## How can I edit this code?
+MediLingua is an innovative multilingual healthcare platform designed to connect patients with healthcare providers who speak their native language. By removing communication barriers, we aim to improve healthcare accessibility, understanding, and outcomes for diverse populations.
 
-There are several ways of editing your application.
+## 🌟 Key Features
 
-**Use Lovable**
+### 🗣️ Multilingual Support
+- Full platform accessibility in 7 languages:
+  - Dutch
+  - English
+  - French
+  - Italian
+  - Russian
+  - Armenian
+  - Bulgarian
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/83a19564-d0f6-4352-8e53-8ab938972410) and start prompting.
+### 🔍 Advanced Doctor Search
+- Filter healthcare providers by:
+  - Language
+  - Specialty
+  - Location
 
-Changes made via Lovable will be committed automatically to this repo.
+### 📅 Smart Appointment Management
+- Online scheduling
+- Language-aware booking
+- Integrated calendar system
 
-**Use your preferred IDE**
+### 💬 Secure Communication
+- Direct messaging between patients and doctors
+- Optional translation assistance
+- Culturally sensitive communication tools
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 Technology Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Frontend
+- **Framework**: Next.js 14+ with React Server Components
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: 
+  - Zustand for global state
+  - React Query for server state
+- **Internationalization**: 
+  - next-intl for routing
+  - Lingui.js for translations
 
-Follow these steps:
+### Backend
+- **API**: 
+  - tRPC for typesafe APIs
+  - GraphQL for complex queries
+- **Database**: 
+  - Prisma ORM
+  - PostgreSQL
+- **Caching**: Redis
+- **Search**: Meilisearch
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Authentication & Security
+- Auth.js
+- JWT with rotation
+- CSRF protection
+- Rate limiting
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠️ Getting Started
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
+- Node.js 18.0.0+
+- npm or yarn
+- PostgreSQL
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/your-organization/medilingua.git
+cd medilingua
 ```
 
-**Edit a file directly in GitHub**
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+3. Set up environment variables
+```bash
+cp .env.example .env.local
+# Edit .env.local with your configuration
+```
 
-**Use GitHub Codespaces**
+4. Run the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## What technologies are used for this project?
+## 🤝 Contributing
 
-This project is built with:
+Contributions are welcome! Please follow these steps:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## How can I deploy this project?
+## 📄 License
 
-Simply open [Lovable](https://lovable.dev/projects/83a19564-d0f6-4352-8e53-8ab938972410) and click on Share -> Publish.
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Can I connect a custom domain to my Lovable project?
+## 🌐 Future Roadmap
 
-Yes, you can!
+- [ ] Video consultation with real-time translation
+- [ ] Mobile application development
+- [ ] Expanded medical specialty support
+- [ ] AI-powered symptom checking
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**© 2025 MediLingua. Breaking Language Barriers in Healthcare.**
