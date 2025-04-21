@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Search, MapPin, User, Filter } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -63,14 +62,14 @@ const FindDoctors = () => {
           {t.subtitle}
         </p>
         
-        <form onSubmit={handleSubmit} className="bg-white/90 rounded-2xl shadow-lg p-6 md:p-8 flex flex-col gap-4 mb-8">
+        <form onSubmit={handleSubmit} className="glass rounded-2xl shadow-lg p-6 md:p-8 flex flex-col gap-4 mb-8 hover-scale animate-pulse-border">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative">
               <User className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
               <input
                 type="text"
                 placeholder={t.namePlaceholder}
-                className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-shadow hover-scale"
                 value={searchParams.name}
                 onChange={(e) => setSearchParams(prev => ({ ...prev, name: e.target.value }))}
               />
@@ -80,7 +79,7 @@ const FindDoctors = () => {
               <input
                 type="text"
                 placeholder={t.locationPlaceholder}
-                className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-shadow hover-scale"
                 value={searchParams.location}
                 onChange={(e) => setSearchParams(prev => ({ ...prev, location: e.target.value }))}
               />
@@ -90,7 +89,7 @@ const FindDoctors = () => {
               <input
                 type="text"
                 placeholder={t.specialtyPlaceholder}
-                className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                className="w-full pl-10 pr-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-shadow hover-scale"
                 list="specialties"
                 value={searchParams.specialty}
                 onChange={(e) => setSearchParams(prev => ({ ...prev, specialty: e.target.value as any }))}
@@ -113,7 +112,7 @@ const FindDoctors = () => {
             
             <button
               type="submit"
-              className="bg-gradient-to-r from-primary to-indigo-600 hover:from-primary/90 hover:to-indigo-600/90 text-white px-5 py-2 rounded-full font-semibold shadow-md transition-colors"
+              className="bg-gradient-to-r from-primary to-indigo-600 hover:from-primary/90 hover:to-indigo-600/90 text-white px-5 py-2 rounded-full font-semibold shadow-md transition-colors hover-scale"
             >
               {t.search}
             </button>
@@ -161,7 +160,7 @@ const FindDoctors = () => {
               ))}
             </>
           ) : (
-            <div className="text-center py-12 bg-white/80 rounded-lg shadow">
+            <div className="text-center py-12 bg-white/80 rounded-lg shadow glass">
               {isError ? (
                 <p className="text-red-500">Error searching for doctors. Please try again.</p>
               ) : (
