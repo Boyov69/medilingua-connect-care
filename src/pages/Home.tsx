@@ -8,17 +8,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const Home = () => {
   const { language } = useLanguage();
-  const t = translations[language].home || {};
-  const availabilityFeature = t.availabilityFeature || {
+  const homeTranslation = translations[language].home || {};
+  
+  // Safely access nested properties with fallbacks
+  const availabilityFeature = homeTranslation.availabilityFeature || {
     title: "Find a doctor accepting new patients",
     subtitle: "New feature on MediLingua",
     description: "In the area, it's often difficult to find a doctor who accepts new patients. MediLingua helps you not only find a doctor who speaks your language, but also shows you which doctors are available for new registrations.",
     cta: "Search available doctors"
   };
   
-  const welcome = t.welcome || "Welcome to MediLingua";
-  const tagline = t.tagline || "Connect with healthcare providers who speak your language.";
-  const findDoctor = t.findDoctor || "Find your doctor";
+  const welcome = homeTranslation.welcome || "Welcome to MediLingua";
+  const tagline = homeTranslation.tagline || "Connect with healthcare providers who speak your language.";
+  const findDoctor = homeTranslation.findDoctor || "Find your doctor";
 
   return (
     <main className="min-h-screen pt-32 bg-gradient-to-b from-rose-50 via-sky-50 to-indigo-50">

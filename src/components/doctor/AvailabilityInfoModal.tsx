@@ -14,15 +14,17 @@ import { translations } from "@/i18n/translations";
 
 export const AvailabilityInfoModal = () => {
   const { language } = useLanguage();
-  const t = translations[language].findDoctors?.availability || {};
-  const modalContent = t.modal || {};
+  // Safely access nested properties with fallbacks
+  const findDoctorsTranslation = translations[language].findDoctors || {};
+  const availabilityTranslation = findDoctorsTranslation.availability || {};
+  const modalContent = availabilityTranslation.modal || {};
   
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="link" className="text-xs flex items-center gap-1 px-0 py-0 h-auto">
           <Info className="h-3 w-3" /> 
-          <span>{t.moreInfo || "More information"}</span>
+          <span>{availabilityTranslation.moreInfo || "More information"}</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-md">
