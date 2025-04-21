@@ -16,7 +16,8 @@ With support for Dutch, English, French, Italian, Russian, Armenian, Bulgarian, 
     name: "Your name",
     email: "Your email",
     message: "Your message",
-    send: "Send message"
+    send: "Send message",
+    info: "Your information is safe with us."
   },
   navbar: {
     home: "Home",

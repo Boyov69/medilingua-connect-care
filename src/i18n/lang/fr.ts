@@ -1,4 +1,3 @@
-
 const fr = {
   home: {
     welcome: "Bienvenue sur MediLingua",
@@ -12,11 +11,12 @@ Disponible en néerlandais, anglais, français, italien, russe, arménien, bulga
   },
   contact: {
     title: "Contactez MediLingua",
-    body: "Une question ? Remplissez le formulaire et nous vous répondrons rapidement !",
+    body: "Une question ? Remplissez le formulaire et nous vous répondrons rapidement !",
     name: "Votre nom",
     email: "Votre e-mail",
     message: "Votre message",
-    send: "Envoyer le message"
+    send: "Envoyer le message",
+    info: "Vos informations sont en sécurité avec nous."
   },
   navbar: {
     home: "Accueil",

@@ -1,4 +1,3 @@
-
 const nl = {
   home: {
     welcome: "Welkom bij MediLingua",
@@ -16,7 +15,8 @@ Met ondersteuning voor Nederlands, Engels, Frans, Italiaans, Russisch, Armeens, 
     name: "Uw naam",
     email: "Uw e-mailadres",
     message: "Uw bericht",
-    send: "Verstuur bericht"
+    send: "Verstuur bericht",
+    info: "Je gegevens zijn veilig bij ons."
   },
   navbar: {
     home: "Home",

@@ -1,4 +1,3 @@
-
 const it = {
   home: {
     welcome: "Benvenuto su MediLingua",
@@ -16,7 +15,8 @@ Supportiamo olandese, inglese, francese, italiano, russo, armeno, bulgaro e turc
     name: "Il tuo nome",
     email: "La tua email",
     message: "Il tuo messaggio",
-    send: "Invia messaggio"
+    send: "Invia messaggio",
+    info: "Le tue informazioni sono al sicuro con noi."
   },
   navbar: {
     home: "Home",

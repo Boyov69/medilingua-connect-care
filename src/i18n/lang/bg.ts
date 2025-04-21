@@ -1,4 +1,3 @@
-
 const bg = {
   home: {
     welcome: "Добре дошли в MediLingua",
@@ -16,7 +15,8 @@ const bg = {
     name: "Вашето име",
     email: "Вашият имейл",
     message: "Вашето съобщение",
-    send: "Изпрати съобщение"
+    send: "Изпрати съобщение",
+    info: "Вашата информация е в безопасност при нас."
   },
   navbar: {
     home: "Начало",
@@ -33,7 +33,7 @@ const bg = {
     locationPlaceholder: "Местоположение",
     specialtyPlaceholder: "Специалност",
     language: "Език",
-    searchResults: "Резултатите от търсенето ще се появят тук."
+    searchResults: "Резултатите от търsenето ще се появят тук."
   }
 };
 export default bg;

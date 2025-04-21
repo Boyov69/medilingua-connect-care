@@ -1,4 +1,3 @@
-
 const tr = {
   home: {
     welcome: "MediLingua'ya Hoş Geldiniz",
@@ -16,7 +15,8 @@ Felemenkçe, İngilizce, Fransızca, İtalyanca, Rusça, Ermenice, Bulgarca ve T
     name: "Adınız",
     email: "E-posta adresiniz",
     message: "Mesajınız",
-    send: "Mesajı gönder"
+    send: "Mesajı gönder",
+    info: "Bilgileriniz bizimle güvende."
   },
   navbar: {
     home: "Ana Sayfa",

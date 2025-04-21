@@ -49,7 +49,7 @@ const Contact = () => {
           </button>
           <div className="flex items-center gap-2 mt-2 text-xs text-muted-foreground">
             <Info className="h-4 w-4" />
-            <span>{t.info || "Je gegevens zijn veilig bij ons."}</span>
+            <span>{t.info || "Your information is safe with us."}</span>
           </div>
         </form>
       </div>
@@ -58,4 +58,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
