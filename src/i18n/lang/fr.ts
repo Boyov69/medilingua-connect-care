@@ -4,6 +4,12 @@ const fr = {
     welcome: "Bienvenue sur MediLingua",
     tagline: "Trouvez des professionnels de santé parlant votre langue.",
     findDoctor: "Trouvez votre médecin",
+    availabilityFeature: {
+      title: "Trouvez un médecin acceptant de nouveaux patients",
+      subtitle: "Nouvelle fonctionnalité sur MediLingua",
+      description: "Dans la région, il est souvent difficile de trouver un médecin qui accepte de nouveaux patients. MediLingua vous aide non seulement à trouver un médecin qui parle votre langue, mais vous montre également quels médecins sont disponibles pour de nouvelles inscriptions.",
+      cta: "Rechercher des médecins disponibles"
+    }
   },
   about: {
     title: "À propos de MediLingua",
@@ -65,14 +71,6 @@ Disponible en néerlandais, anglais, français, italien, russe, arménien, bulga
   languageSelector: {
     tooltip: "Sélectionnez votre langue préférée. Cela change la langue du site web.",
     ariaLabel: "Sélectionner la langue"
-  },
-  home: {
-    availabilityFeature: {
-      title: "Trouvez un médecin acceptant de nouveaux patients",
-      subtitle: "Nouvelle fonctionnalité sur MediLingua",
-      description: "Dans la région, il est souvent difficile de trouver un médecin qui accepte de nouveaux patients. MediLingua vous aide non seulement à trouver un médecin qui parle votre langue, mais vous montre également quels médecins sont disponibles pour de nouvelles inscriptions.",
-      cta: "Rechercher des médecins disponibles"
-    }
   }
 };
 export default fr;

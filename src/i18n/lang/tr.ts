@@ -4,6 +4,12 @@ const tr = {
     welcome: "MediLingua'ya Hoş Geldiniz",
     tagline: "Dilinizde konuşan sağlık hizmeti sağlayıcılarını bulun.",
     findDoctor: "Doktorunu bul",
+    availabilityFeature: {
+      title: "Yeni hastalar kabul eden bir doktor bulun",
+      subtitle: "MediLingua'daki yeni özellik",
+      description: "Bölgede yeni hastalar kabul eden bir doktor bulmak genellikle zordur. MediLingua size sadece dilinizi konuşan bir doktor bulmakla kalmaz, aynı zamanda hangi doktorların yeni kayıtlar için müsait olduğunu da gösterir.",
+      cta: "Müsait doktorları ara"
+    }
   },
   about: {
     title: "MediLingua Hakkında",
@@ -65,14 +71,6 @@ Felemenkçe, İngilizce, Fransızca, İtalyanca, Rusça, Ermenice, Bulgarca ve T
   languageSelector: {
     tooltip: "Tercih ettiğiniz dili seçin. Bu, web sitesinin dilini değiştirir.",
     ariaLabel: "Dil seçin"
-  },
-  home: {
-    availabilityFeature: {
-      title: "Yeni hastalar kabul eden bir doktor bulun",
-      subtitle: "MediLingua'daki yeni özellik",
-      description: "Bölgede yeni hastalar kabul eden bir doktor bulmak genellikle zordur. MediLingua size sadece dilinizi konuşan bir doktor bulmakla kalmaz, aynı zamanda hangi doktorların yeni kayıtlar için müsait olduğunu da gösterir.",
-      cta: "Müsait doktorları ara"
-    }
   }
 };
 export default tr;

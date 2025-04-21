@@ -4,6 +4,12 @@ const en = {
     welcome: "Welcome to MediLingua",
     tagline: "Connect with healthcare providers who speak your language.",
     findDoctor: "Find your doctor",
+    availabilityFeature: {
+      title: "Find a doctor accepting new patients",
+      subtitle: "New feature on MediLingua",
+      description: "In the area, it's often difficult to find a doctor who accepts new patients. MediLingua helps you not only find a doctor who speaks your language, but also shows you which doctors are available for new registrations.",
+      cta: "Search available doctors"
+    }
   },
   about: {
     title: "About MediLingua",
@@ -65,14 +71,6 @@ With support for Dutch, English, French, Italian, Russian, Armenian, Bulgarian, 
   languageSelector: {
     tooltip: "Select your preferred language. This changes the website's language.",
     ariaLabel: "Select language"
-  },
-  home: {
-    availabilityFeature: {
-      title: "Find a doctor accepting new patients",
-      subtitle: "New feature on MediLingua",
-      description: "In the area, it's often difficult to find a doctor who accepts new patients. MediLingua helps you not only find a doctor who speaks your language, but also shows you which doctors are available for new registrations.",
-      cta: "Search available doctors"
-    }
   }
 };
 export default en;

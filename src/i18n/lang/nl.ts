@@ -4,6 +4,12 @@ const nl = {
     welcome: "Welkom bij MediLingua",
     tagline: "Vind zorgverleners die uw taal spreken.",
     findDoctor: "Zoek uw arts",
+    availabilityFeature: {
+      title: "Vind een huisarts die nieuwe patiënten accepteert",
+      subtitle: "Nieuwe functionaliteit op MediLingua",
+      description: "In Hasselt en omgeving is het vaak moeilijk om een huisarts te vinden die nieuwe patiënten accepteert. MediLingua helpt u niet alleen een arts te vinden die uw taal spreekt, maar toont u ook welke artsen beschikbaar zijn voor nieuwe registraties.",
+      cta: "Zoek beschikbare huisartsen"
+    }
   },
   about: {
     title: "Over MediLingua",
@@ -65,14 +71,6 @@ Met ondersteuning voor Nederlands, Engels, Frans, Italiaans, Russisch, Armeens, 
   languageSelector: {
     tooltip: "Selecteer uw voorkeurstaal. Dit verandert de taal van de website.",
     ariaLabel: "Taal selecteren"
-  },
-  home: {
-    availabilityFeature: {
-      title: "Vind een huisarts die nieuwe patiënten accepteert",
-      subtitle: "Nieuwe functionaliteit op MediLingua",
-      description: "In Hasselt en omgeving is het vaak moeilijk om een huisarts te vinden die nieuwe patiënten accepteert. MediLingua helpt u niet alleen een arts te vinden die uw taal spreekt, maar toont u ook welke artsen beschikbaar zijn voor nieuwe registraties.",
-      cta: "Zoek beschikbare huisartsen"
-    }
   }
 };
 export default nl;

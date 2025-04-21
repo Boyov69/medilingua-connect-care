@@ -8,22 +8,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 
 const Home = () => {
   const { language } = useLanguage();
-  const t = translations[language].home;
+  const t = translations[language].home || {};
   const availabilityFeature = t.availabilityFeature || {
     title: "Find a doctor accepting new patients",
     subtitle: "New feature on MediLingua",
     description: "In the area, it's often difficult to find a doctor who accepts new patients. MediLingua helps you not only find a doctor who speaks your language, but also shows you which doctors are available for new registrations.",
     cta: "Search available doctors"
   };
+  
+  const welcome = t.welcome || "Welcome to MediLingua";
+  const tagline = t.tagline || "Connect with healthcare providers who speak your language.";
+  const findDoctor = t.findDoctor || "Find your doctor";
 
   return (
     <main className="min-h-screen pt-32 bg-gradient-to-b from-rose-50 via-sky-50 to-indigo-50">
       <div className="container mx-auto max-w-3xl p-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent mb-4">
-          {t.welcome}
+          {welcome}
         </h1>
         <p className="text-lg text-muted-foreground mb-8">
-          {t.tagline}
+          {tagline}
         </p>
         <img
           src="/placeholder.svg"
@@ -35,7 +39,7 @@ const Home = () => {
             to="/find-doctors"
             className="bg-gradient-to-r from-primary to-indigo-600 hover:from-primary/90 hover:to-indigo-600/90 text-white px-7 py-3 rounded-full shadow-lg text-lg font-semibold transition-colors inline-block"
           >
-            {t.findDoctor}
+            {findDoctor}
           </Link>
         </div>
         
