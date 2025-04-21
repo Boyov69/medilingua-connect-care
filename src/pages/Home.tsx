@@ -9,6 +9,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const Home = () => {
   const { language } = useLanguage();
   const t = translations[language].home;
+  const availabilityFeature = t.availabilityFeature || {
+    title: "Find a doctor accepting new patients",
+    subtitle: "New feature on MediLingua",
+    description: "In the area, it's often difficult to find a doctor who accepts new patients. MediLingua helps you not only find a doctor who speaks your language, but also shows you which doctors are available for new registrations.",
+    cta: "Search available doctors"
+  };
 
   return (
     <main className="min-h-screen pt-32 bg-gradient-to-b from-rose-50 via-sky-50 to-indigo-50">
@@ -18,8 +24,6 @@ const Home = () => {
         </h1>
         <p className="text-lg text-muted-foreground mb-8">
           {t.tagline}
-          <br />
-          {/* Kept the same language list, you can further translatable if you expand translations */}
         </p>
         <img
           src="/placeholder.svg"
@@ -43,24 +47,22 @@ const Home = () => {
                 <UserPlus className="w-6 h-6 text-sky-600" />
               </div>
               <CardTitle className="text-2xl font-bold text-sky-900">
-                Vind een huisarts die nieuwe patiënten accepteert
+                {availabilityFeature.title}
               </CardTitle>
               <CardDescription className="text-sky-700">
-                Nieuwe functionaliteit op MediLingua
+                {availabilityFeature.subtitle}
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
               <p className="mb-6 text-muted-foreground">
-                In Hasselt en omgeving is het vaak moeilijk om een huisarts te vinden die nieuwe patiënten accepteert. 
-                MediLingua helpt u niet alleen een arts te vinden die uw taal spreekt, maar toont u ook welke 
-                artsen beschikbaar zijn voor nieuwe registraties.
+                {availabilityFeature.description}
               </p>
               <Link 
                 to="/find-doctors?availability=available" 
                 className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-sky-500 to-teal-400 text-white rounded-full font-medium hover:from-sky-600 hover:to-teal-500 transition-all shadow-md"
               >
                 <Search className="mr-2 w-4 h-4" />
-                Zoek beschikbare huisartsen
+                {availabilityFeature.cta}
               </Link>
             </CardContent>
           </Card>

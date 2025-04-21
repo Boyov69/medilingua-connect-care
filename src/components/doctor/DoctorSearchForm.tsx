@@ -129,7 +129,7 @@ export const DoctorSearchForm = ({
             className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
           >
             <Filter className="h-4 w-4" /> 
-            {showFilters ? "Hide filters" : "Show filters"}
+            {showFilters ? t.filters?.hideFilters || "Hide filters" : t.filters?.showFilters || "Show filters"}
           </button>
           <button
             type="button"
@@ -137,7 +137,7 @@ export const DoctorSearchForm = ({
             className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
           >
             <Map className="h-4 w-4" /> 
-            {showMapView ? "Hide map" : "Show map"}
+            {showMapView ? t.filters?.hideMap || "Hide map" : t.filters?.showMap || "Show map"}
           </button>
         </div>
         <button
@@ -156,7 +156,7 @@ export const DoctorSearchForm = ({
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-between">
                 <label className="flex items-center space-x-2 text-sm font-medium">
-                  <span>Toont alleen artsen die nieuwe patiënten accepteren</span>
+                  <span>{t.availability?.showOnlyAvailable || "Show only doctors accepting new patients"}</span>
                 </label>
                 <Switch 
                   checked={searchParams.onlyAvailable} 
@@ -166,7 +166,7 @@ export const DoctorSearchForm = ({
               <div className="mt-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium">Beschikbaarheid:</span>
+                    <span className="text-sm font-medium">{t.availability?.title || "Availability"}:</span>
                     <AvailabilityInfoModal />
                   </div>
                   <Select 
@@ -174,7 +174,7 @@ export const DoctorSearchForm = ({
                     onValueChange={handleAvailabilityChange}
                   >
                     <SelectTrigger className="w-[200px]">
-                      <SelectValue placeholder="Alle artsen" />
+                      <SelectValue placeholder={t.availability?.all || "All doctors"} />
                     </SelectTrigger>
                     <SelectContent>
                       {AVAILABILITY_OPTIONS.map((option) => {
@@ -222,4 +222,3 @@ export const DoctorSearchForm = ({
 };
 
 export default DoctorSearchForm;
-

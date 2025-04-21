@@ -34,11 +34,45 @@ Supportiamo olandese, inglese, francese, italiano, russo, armeno, bulgaro e turc
     locationPlaceholder: "Posizione",
     specialtyPlaceholder: "Specializzazione",
     language: "Lingua",
-    searchResults: "I risultati della ricerca appariranno qui."
+    searchResults: "I risultati della ricerca appariranno qui.",
+    availability: {
+      title: "Disponibilità",
+      showOnlyAvailable: "Mostra solo i medici che accettano nuovi pazienti",
+      all: "Tutti i medici",
+      available: "Accetta nuovi pazienti",
+      full: "Attualmente al completo",
+      moreInfo: "Maggiori informazioni",
+      modal: {
+        title: "Informazioni sulla disponibilità dei medici",
+        subtitle: "Informazioni sul sistema di disponibilità",
+        description: "Molti studi medici hanno uno stop ai pazienti a causa dell'elevato carico di lavoro. MediLingua collabora con associazioni mediche per fornire informazioni in tempo reale su quali medici hanno ancora posto per nuovi pazienti. Queste informazioni vengono regolarmente aggiornate dai medici stessi.",
+        warning: "Nota",
+        warningText: "La disponibilità può cambiare rapidamente. Consigliamo di contattare direttamente lo studio per confermare lo stato attuale."
+      },
+      badge: {
+        available: "Accetta nuovi pazienti",
+        full: "Studio completo"
+      },
+      spots: "posti disponibili"
+    },
+    filters: {
+      hideFilters: "Nascondi filtri",
+      showFilters: "Mostra filtri",
+      hideMap: "Nascondi mappa",
+      showMap: "Mostra mappa"
+    }
   },
   languageSelector: {
     tooltip: "Seleziona la tua lingua preferita. Questo cambierà la lingua del sito web.",
     ariaLabel: "Seleziona lingua"
+  },
+  home: {
+    availabilityFeature: {
+      title: "Trova un medico che accetta nuovi pazienti",
+      subtitle: "Nuova funzionalità su MediLingua",
+      description: "Nella zona è spesso difficile trovare un medico che accetti nuovi pazienti. MediLingua ti aiuta non solo a trovare un medico che parla la tua lingua, ma ti mostra anche quali medici sono disponibili per nuove registrazioni.",
+      cta: "Cerca medici disponibili"
+    }
   }
 };
 export default it;

@@ -34,11 +34,45 @@ Disponible en néerlandais, anglais, français, italien, russe, arménien, bulga
     locationPlaceholder: "Localisation",
     specialtyPlaceholder: "Spécialité",
     language: "Langue",
-    searchResults: "Les résultats de recherche apparaîtront ici."
+    searchResults: "Les résultats de recherche apparaîtront ici.",
+    availability: {
+      title: "Disponibilité",
+      showOnlyAvailable: "Afficher uniquement les médecins acceptant de nouveaux patients",
+      all: "Tous les médecins",
+      available: "Accepte de nouveaux patients",
+      full: "Actuellement complet",
+      moreInfo: "Plus d'informations",
+      modal: {
+        title: "À propos de la disponibilité des médecins",
+        subtitle: "Informations sur le système de disponibilité",
+        description: "De nombreux cabinets médicaux ont un arrêt de patients en raison d'une charge de travail élevée. MediLingua travaille avec des associations médicales pour fournir des informations en temps réel sur les médecins qui ont encore de la place pour de nouveaux patients. Ces informations sont régulièrement mises à jour par les médecins eux-mêmes.",
+        warning: "Remarque",
+        warningText: "La disponibilité peut changer rapidement. Nous vous recommandons de contacter directement le cabinet pour confirmer le statut actuel."
+      },
+      badge: {
+        available: "Accepte de nouveaux patients",
+        full: "Cabinet complet"
+      },
+      spots: "places disponibles"
+    },
+    filters: {
+      hideFilters: "Masquer les filtres",
+      showFilters: "Afficher les filtres",
+      hideMap: "Masquer la carte",
+      showMap: "Afficher la carte"
+    }
   },
   languageSelector: {
     tooltip: "Sélectionnez votre langue préférée. Cela change la langue du site web.",
     ariaLabel: "Sélectionner la langue"
+  },
+  home: {
+    availabilityFeature: {
+      title: "Trouvez un médecin acceptant de nouveaux patients",
+      subtitle: "Nouvelle fonctionnalité sur MediLingua",
+      description: "Dans la région, il est souvent difficile de trouver un médecin qui accepte de nouveaux patients. MediLingua vous aide non seulement à trouver un médecin qui parle votre langue, mais vous montre également quels médecins sont disponibles pour de nouvelles inscriptions.",
+      cta: "Rechercher des médecins disponibles"
+    }
   }
 };
 export default fr;

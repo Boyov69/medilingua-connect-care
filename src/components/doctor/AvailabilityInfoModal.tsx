@@ -9,34 +9,36 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Info } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/i18n/translations";
 
 export const AvailabilityInfoModal = () => {
+  const { language } = useLanguage();
+  const t = translations[language].findDoctors?.availability?.modal || {};
+  
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="link" className="text-xs flex items-center gap-1 px-0 py-0 h-auto">
           <Info className="h-3 w-3" /> 
-          <span>Meer informatie</span>
+          <span>{translations[language].findDoctors?.availability?.moreInfo || "More information"}</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle>Over beschikbaarheid van huisartsen</DialogTitle>
+          <DialogTitle>{t.title || "About Doctor Availability"}</DialogTitle>
           <DialogDescription>
-            Informatie over het beschikbaarheidssysteem
+            {t.subtitle || "Information about the availability system"}
           </DialogDescription>
         </DialogHeader>
         <div className="space-y-4">
           <p>
-            Veel huisartsenpraktijken in België hebben een patiëntenstop vanwege grote werkdruk. 
-            MediLingua werkt samen met huisartsenkringen om realtime informatie te bieden over welke 
-            artsen nog ruimte hebben voor nieuwe patiënten. Deze informatie wordt regelmatig bijgewerkt door de artsen zelf.
+            {t.description || "Many medical practices have a patient stop due to high workload. MediLingua works with medical associations to provide real-time information about which doctors still have room for new patients. This information is regularly updated by the doctors themselves."}
           </p>
           <div className="bg-amber-50 border border-amber-200 p-3 rounded-md">
-            <h4 className="font-medium text-amber-800">Let op</h4>
+            <h4 className="font-medium text-amber-800">{t.warning || "Note"}</h4>
             <p className="text-sm text-amber-700">
-              Beschikbaarheid kan snel veranderen. We raden aan direct contact op te nemen met de praktijk 
-              om de huidige status te bevestigen.
+              {t.warningText || "Availability can change quickly. We recommend contacting the practice directly to confirm current status."}
             </p>
           </div>
         </div>

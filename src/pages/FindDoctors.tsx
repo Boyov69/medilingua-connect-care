@@ -27,12 +27,6 @@ const SPECIALTIES = [
   "Neurologist", "Psychiatrist", "Surgeon", "Ophthalmologist"
 ];
 
-const AVAILABILITY_OPTIONS = [
-  { value: "all", label: "Alle artsen", icon: Users },
-  { value: "available", label: "Accepteert nieuwe patiënten", icon: UserPlus },
-  { value: "full", label: "Momenteel vol", icon: UserX }
-];
-
 const FindDoctors = () => {
   const { language } = useLanguage();
   const t = translations[language].findDoctors;
@@ -49,6 +43,12 @@ const FindDoctors = () => {
     setSearchParams,
     handleSearch
   } = useSearchDoctors();
+
+  const AVAILABILITY_OPTIONS = [
+    { value: "all", label: t.availability?.all || "All doctors", icon: Users },
+    { value: "available", label: t.availability?.available || "Accepting new patients", icon: UserPlus },
+    { value: "full", label: t.availability?.full || "Currently full", icon: UserX }
+  ];
 
   return (
     <main className="min-h-screen pt-32 pb-12 bg-gradient-to-br from-sky-50 to-indigo-50">
