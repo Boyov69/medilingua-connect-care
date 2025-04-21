@@ -23,7 +23,7 @@ function getTheme(): "dark" | "light" {
 export default function DarkModeToggle() {
   const [theme, setTheme] = React.useState<"dark" | "light">(getTheme);
 
-  // Apply theme on component mount and when theme changes
+  // Apply theme when theme state changes
   React.useEffect(() => {
     // Save theme to localStorage
     localStorage.setItem("theme", theme);
@@ -35,17 +35,6 @@ export default function DarkModeToggle() {
       document.documentElement.classList.remove("dark");
     }
   }, [theme]);
-
-  // Apply initial theme on component mount
-  React.useEffect(() => {
-    // Set initial class based on stored theme
-    const initialTheme = getTheme();
-    if (initialTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
 
   function toggleTheme() {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
