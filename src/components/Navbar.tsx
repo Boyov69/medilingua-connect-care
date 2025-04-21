@@ -1,7 +1,7 @@
-
 import { Link, useLocation } from "react-router-dom";
 import { Globe } from "lucide-react";
 import LanguageSelector from "./LanguageSelector";
+import DarkModeToggle from "./DarkModeToggle";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 
@@ -41,6 +41,7 @@ export default function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-2">
+          <DarkModeToggle />
           <LanguageSelector />
         </div>
       </div>
