@@ -1,5 +1,5 @@
 
-import { Doctor, Language, Specialty } from "@/types/doctor";
+import { Doctor, Language, Specialty, AvailabilityStatus } from "@/types/doctor";
 
 // Mock data voor artsen
 const mockDoctors: Doctor[] = [
@@ -13,7 +13,10 @@ const mockDoctors: Doctor[] = [
     rating: 4.8,
     reviewCount: 243,
     availability: "Mon, Wed, Fri",
-    photo: "/placeholder.svg"
+    photo: "/placeholder.svg",
+    availabilityStatus: "available",
+    availableSlots: 5,
+    availabilityNotes: "Bij voorkeur patiënten uit Amsterdam-Centrum"
   },
   {
     id: "d2",
@@ -25,7 +28,10 @@ const mockDoctors: Doctor[] = [
     rating: 4.7,
     reviewCount: 187,
     availability: "Tue, Thu",
-    photo: "/placeholder.svg"
+    photo: "/placeholder.svg",
+    availabilityStatus: "full",
+    tempUnavailableUntil: "2024-08-01",
+    availabilityNotes: "Patiëntenstop tot augustus 2024"
   },
   {
     id: "d3",
@@ -37,7 +43,10 @@ const mockDoctors: Doctor[] = [
     rating: 4.9,
     reviewCount: 312,
     availability: "Mon-Fri",
-    photo: "/placeholder.svg"
+    photo: "/placeholder.svg",
+    availabilityStatus: "limited",
+    availableSlots: 2,
+    availabilityNotes: "Beperkte beschikbaarheid voor nieuwe patiënten"
   },
   {
     id: "d4",
@@ -49,7 +58,9 @@ const mockDoctors: Doctor[] = [
     rating: 4.6,
     reviewCount: 168,
     availability: "Wed, Fri",
-    photo: "/placeholder.svg"
+    photo: "/placeholder.svg",
+    availabilityStatus: "full",
+    availabilityNotes: "Momenteel geen nieuwe patiënten"
   },
   {
     id: "d5",
@@ -61,7 +72,10 @@ const mockDoctors: Doctor[] = [
     rating: 4.8,
     reviewCount: 205,
     availability: "Mon, Thu",
-    photo: "/placeholder.svg"
+    photo: "/placeholder.svg",
+    availabilityStatus: "available",
+    availableSlots: 8,
+    availabilityNotes: "Online consultaties ook beschikbaar"
   },
   {
     id: "d6",
@@ -73,7 +87,10 @@ const mockDoctors: Doctor[] = [
     rating: 4.5,
     reviewCount: 142,
     availability: "Tue, Wed, Fri",
-    photo: "/placeholder.svg"
+    photo: "/placeholder.svg",
+    availabilityStatus: "available",
+    availableSlots: 3,
+    availabilityNotes: "Prioriteert dringende gevallen"
   },
   {
     id: "d7",
@@ -85,7 +102,10 @@ const mockDoctors: Doctor[] = [
     rating: 4.7,
     reviewCount: 159,
     availability: "Mon-Thu",
-    photo: "/placeholder.svg"
+    photo: "/placeholder.svg",
+    availabilityStatus: "limited",
+    availableSlots: 1,
+    availabilityNotes: "Bijna vol, nog beperkte plekken"
   },
   {
     id: "d8",
@@ -97,7 +117,10 @@ const mockDoctors: Doctor[] = [
     rating: 4.9,
     reviewCount: 276,
     availability: "Mon, Wed, Fri",
-    photo: "/placeholder.svg"
+    photo: "/placeholder.svg",
+    availabilityStatus: "full",
+    tempUnavailableUntil: "2024-07-15",
+    availabilityNotes: "Tijdelijke patiëntenstop"
   }
 ];
 
@@ -109,6 +132,8 @@ export interface SearchOptions {
   location?: string;
   specialty?: Specialty | '';
   language?: Language | '';
+  availabilityStatus?: AvailabilityStatus | 'all' | '';
+  onlyAvailable?: boolean;
 }
 
 export const searchDoctors = async (options: SearchOptions): Promise<Doctor[]> => {
@@ -142,6 +167,16 @@ export const searchDoctors = async (options: SearchOptions): Promise<Doctor[]> =
   // Filter op taal
   if (options.language) {
     results = results.filter(doc => doc.languages.includes(options.language as Language));
+  }
+  
+  // Filter op beschikbaarheidsstatus
+  if (options.availabilityStatus && options.availabilityStatus !== 'all') {
+    results = results.filter(doc => doc.availabilityStatus === options.availabilityStatus);
+  }
+  
+  // Filter alleen beschikbare artsen (toggle)
+  if (options.onlyAvailable) {
+    results = results.filter(doc => doc.availabilityStatus === 'available');
   }
   
   return results;

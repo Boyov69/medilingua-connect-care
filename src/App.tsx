@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import FindDoctors from "./pages/FindDoctors";
 import Contact from "./pages/Contact";
+import DoctorAvailability from "./pages/DoctorAvailability";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { ApiKeyProvider } from "@/context/ApiKeyContext";
 
@@ -31,6 +32,7 @@ const App = () => (
                 <Route path="/about" element={<About />} />
                 <Route path="/find-doctors" element={<FindDoctors />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/doctor-availability" element={<DoctorAvailability />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

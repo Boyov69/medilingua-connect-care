@@ -1,11 +1,11 @@
 
 import { useState } from "react";
-import { Search, MapPin, User, Filter, Map } from "lucide-react";
+import { Search, MapPin, User, Filter, Map, UserPlus, Users, UserX } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { useSearchDoctors } from "@/hooks/useSearchDoctors";
 import DoctorCard from "@/components/doctor/DoctorCard";
-import { Language } from "@/types/doctor";
+import { Language, AvailabilityStatus } from "@/types/doctor";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import DoctorMap from "@/components/doctor/DoctorMap";
@@ -13,6 +13,15 @@ import { useApiKey } from "@/context/ApiKeyContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { Switch } from "@/components/ui/switch";
+import { AvailabilityInfoModal } from "@/components/doctor/AvailabilityInfoModal";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -28,6 +37,12 @@ const LANGUAGES = [
 const SPECIALTIES = [
   "General Practitioner", "Pediatrician", "Cardiologist", "Dermatologist", 
   "Neurologist", "Psychiatrist", "Surgeon", "Ophthalmologist"
+];
+
+const AVAILABILITY_OPTIONS = [
+  { value: "all", label: "Alle artsen", icon: Users },
+  { value: "available", label: "Accepteert nieuwe patiënten", icon: UserPlus },
+  { value: "full", label: "Momenteel vol", icon: UserX }
 ];
 
 const FindDoctors = () => {
@@ -79,6 +94,20 @@ const FindDoctors = () => {
       title: "API Sleutel Opgeslagen",
       description: "De Google Maps API sleutel is opgeslagen"
     });
+  };
+
+  const handleAvailabilityChange = (value: string) => {
+    setSearchParams(prev => ({
+      ...prev,
+      availabilityStatus: value as AvailabilityStatus | 'all'
+    }));
+  };
+
+  const handleOnlyAvailableToggle = (checked: boolean) => {
+    setSearchParams(prev => ({
+      ...prev,
+      onlyAvailable: checked
+    }));
   };
 
   return (
@@ -162,24 +191,67 @@ const FindDoctors = () => {
             <div className={cn("transition-all duration-300", 
               showFilters ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
             )}>
-              <div className="mt-4 pt-4 border-t">
-                <span className="font-medium text-sm text-muted-foreground mb-2 block">{t.language}:</span>
-                <div className="flex flex-wrap gap-2">
-                  {LANGUAGES.map((l) => (
-                    <button
-                      type="button"
-                      key={l.code}
-                      className={cn(
-                        "px-4 py-1.5 border rounded-full font-medium text-sm transition",
-                        searchParams.language === l.code
-                          ? "bg-primary text-white border-primary"
-                          : "bg-gradient-to-r from-white to-primary/10 border-gray-200 text-primary hover:bg-primary/20"
-                      )}
-                      onClick={() => toggleLanguage(l.code as Language)}
-                    >
-                      {l.label}
-                    </button>
-                  ))}
+              <div className="mt-4 pt-4 border-t border-b pb-4 space-y-4">
+                <div className="flex flex-col space-y-2">
+                  <div className="flex items-center justify-between">
+                    <label className="flex items-center space-x-2 text-sm font-medium">
+                      <span>Toont alleen artsen die nieuwe patiënten accepteren</span>
+                    </label>
+                    <Switch 
+                      checked={searchParams.onlyAvailable} 
+                      onCheckedChange={handleOnlyAvailableToggle}
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-medium">Beschikbaarheid:</span>
+                        <AvailabilityInfoModal />
+                      </div>
+                      <Select 
+                        value={searchParams.availabilityStatus || 'all'} 
+                        onValueChange={handleAvailabilityChange}
+                      >
+                        <SelectTrigger className="w-[200px]">
+                          <SelectValue placeholder="Alle artsen" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {AVAILABILITY_OPTIONS.map((option) => {
+                            const Icon = option.icon;
+                            return (
+                              <SelectItem key={option.value} value={option.value}>
+                                <div className="flex items-center gap-2">
+                                  <Icon className="h-4 w-4" />
+                                  <span>{option.label}</span>
+                                </div>
+                              </SelectItem>
+                            );
+                          })}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="font-medium text-sm text-muted-foreground mb-2 block">{t.language}:</span>
+                  <div className="flex flex-wrap gap-2">
+                    {LANGUAGES.map((l) => (
+                      <button
+                        type="button"
+                        key={l.code}
+                        className={cn(
+                          "px-4 py-1.5 border rounded-full font-medium text-sm transition",
+                          searchParams.language === l.code
+                            ? "bg-primary text-white border-primary"
+                            : "bg-gradient-to-r from-white to-primary/10 border-gray-200 text-primary hover:bg-primary/20"
+                        )}
+                        onClick={() => toggleLanguage(l.code as Language)}
+                      >
+                        {l.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -238,7 +310,7 @@ const FindDoctors = () => {
               ) : (
                 <>
                   <p className="text-muted-foreground">
-                    {searchParams.name || searchParams.location || searchParams.specialty || searchParams.language
+                    {searchParams.name || searchParams.location || searchParams.specialty || searchParams.language || searchParams.availabilityStatus !== 'all' || searchParams.onlyAvailable
                       ? "No doctors found matching your criteria. Try adjusting your filters."
                       : t.searchResults}
                   </p>

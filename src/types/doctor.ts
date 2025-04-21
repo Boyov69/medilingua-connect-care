@@ -19,6 +19,11 @@ export type Language =
   | "bg" // Bulgarian
   | "tr"; // Turkish
 
+export type AvailabilityStatus = 
+  | "available" // Accepting new patients
+  | "full" // Not accepting new patients
+  | "limited"; // Limited availability
+
 export interface Doctor {
   id: string;
   name: string;
@@ -30,4 +35,8 @@ export interface Doctor {
   reviewCount: number;
   availability: string;
   photo?: string;
+  availabilityStatus: AvailabilityStatus;
+  availableSlots?: number;
+  tempUnavailableUntil?: string;
+  availabilityNotes?: string;
 }

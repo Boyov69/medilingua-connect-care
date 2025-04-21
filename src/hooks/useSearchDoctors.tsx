@@ -11,6 +11,8 @@ export const useSearchDoctors = () => {
     location: '',
     specialty: '',
     language: '',
+    availabilityStatus: 'all',
+    onlyAvailable: false,
   });
   
   const { toast } = useToast();
