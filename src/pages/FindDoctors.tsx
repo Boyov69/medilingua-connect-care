@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Search, MapPin, User, Filter } from "lucide-react";
+import { Search, MapPin, User, Filter, Map } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
 import { useSearchDoctors } from "@/hooks/useSearchDoctors";
@@ -7,6 +8,11 @@ import DoctorCard from "@/components/doctor/DoctorCard";
 import { Language } from "@/types/doctor";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
+import DoctorMap from "@/components/doctor/DoctorMap";
+import { useApiKey } from "@/context/ApiKeyContext";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -28,8 +34,14 @@ const FindDoctors = () => {
   const { language } = useLanguage();
   const t = translations[language].findDoctors;
   const isMobile = useIsMobile();
+  const { toast } = useToast();
   
   const [showFilters, setShowFilters] = useState(false);
+  const [showMapView, setShowMapView] = useState(false);
+  
+  // Google Maps API key state
+  const { googleMapsApiKey, setGoogleMapsApiKey } = useApiKey();
+  const [apiKeyInput, setApiKeyInput] = useState("");
   
   const {
     doctors,
@@ -50,6 +62,23 @@ const FindDoctors = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     handleSearch();
+  };
+  
+  const saveApiKey = () => {
+    if (!apiKeyInput.trim()) {
+      toast({
+        title: "API Sleutel Ontbreekt",
+        description: "Voer een geldige Google Maps API sleutel in",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setGoogleMapsApiKey(apiKeyInput);
+    toast({
+      title: "API Sleutel Opgeslagen",
+      description: "De Google Maps API sleutel is opgeslagen"
+    });
   };
 
   return (
@@ -101,14 +130,25 @@ const FindDoctors = () => {
           </div>
           
           <div className="flex justify-between items-center">
-            <button
-              type="button"
-              onClick={() => setShowFilters(prev => !prev)}
-              className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
-            >
-              <Filter className="h-4 w-4" /> 
-              {showFilters ? "Hide filters" : "Show filters"}
-            </button>
+            <div className="flex gap-4">
+              <button
+                type="button"
+                onClick={() => setShowFilters(prev => !prev)}
+                className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
+              >
+                <Filter className="h-4 w-4" /> 
+                {showFilters ? "Hide filters" : "Show filters"}
+              </button>
+              
+              <button
+                type="button"
+                onClick={() => setShowMapView(prev => !prev)}
+                className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
+              >
+                <Map className="h-4 w-4" /> 
+                {showMapView ? "Hide map" : "Show map"}
+              </button>
+            </div>
             
             <button
               type="submit"
@@ -145,6 +185,38 @@ const FindDoctors = () => {
             </div>
           )}
         </form>
+        
+        {showMapView && (
+          <div className="mb-8 relative">
+            {!googleMapsApiKey && (
+              <div className="mb-4 p-4 bg-white/80 backdrop-blur-lg rounded-lg shadow flex flex-col sm:flex-row gap-3 items-center">
+                <Input
+                  type="text"
+                  value={apiKeyInput}
+                  onChange={(e) => setApiKeyInput(e.target.value)}
+                  placeholder="Voer Google Maps API sleutel in"
+                  className="flex-grow"
+                />
+                <Button onClick={saveApiKey} className="whitespace-nowrap">
+                  API Sleutel Opslaan
+                </Button>
+                <a 
+                  href="https://console.cloud.google.com/apis/credentials" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-xs text-primary hover:underline"
+                >
+                  Geen sleutel? Maak er een aan
+                </a>
+              </div>
+            )}
+            <DoctorMap 
+              doctors={doctors} 
+              apiKey={googleMapsApiKey}
+              center={searchParams.location ? undefined : { lat: 52.370216, lng: 4.895168 }}
+            />
+          </div>
+        )}
         
         <div className="space-y-4">
           {isLoading ? (

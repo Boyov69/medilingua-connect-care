@@ -12,6 +12,7 @@ import About from "./pages/About";
 import FindDoctors from "./pages/FindDoctors";
 import Contact from "./pages/Contact";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { ApiKeyProvider } from "@/context/ApiKeyContext";
 
 const queryClient = new QueryClient();
 
@@ -20,21 +21,23 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <LanguageProvider>
-        <BrowserRouter>
-          <Navbar />
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/find-doctors" element={<FindDoctors />} />
-              <Route path="/contact" element={<Contact />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </LanguageProvider>
+      <ApiKeyProvider>
+        <LanguageProvider>
+          <BrowserRouter>
+            <Navbar />
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/find-doctors" element={<FindDoctors />} />
+                <Route path="/contact" element={<Contact />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+          </BrowserRouter>
+        </LanguageProvider>
+      </ApiKeyProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
