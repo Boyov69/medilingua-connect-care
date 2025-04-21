@@ -16,10 +16,10 @@ const LANGUAGES = [
 export default function LanguageSelector() {
   const { language, setLanguage } = useLanguage();
   return (
-    <div className="flex items-center gap-2">
-      <Languages className="h-5 w-5 text-primary" />
+    <div className="flex items-center gap-2 animate-fade-in">
+      <Languages className="h-5 w-5 text-primary transition-transform duration-200 group-hover:scale-110" />
       <select
-        className="bg-white/70 border rounded-full px-3 py-1 text-sm outline-none shadow focus:ring-2 focus:ring-primary"
+        className="bg-white/70 border rounded-full px-3 py-1 text-sm outline-none shadow focus:ring-2 focus:ring-primary transition-all duration-200"
         value={language}
         onChange={e => setLanguage(e.target.value as any)}
       >
