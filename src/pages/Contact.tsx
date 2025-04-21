@@ -1,15 +1,17 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/i18n/translations";
+import { useLanguageTheme } from "@/hooks/useLanguageTheme";
 
 const Contact = () => {
   const { language } = useLanguage();
   const t = translations[language].contact;
+  const { bgClass, fgClass, fontClass } = useLanguageTheme();
 
   return (
-    <main className="min-h-screen pt-32 bg-gradient-to-br from-rose-50 via-sky-50 to-indigo-50">
+    <main className={`min-h-screen pt-32 ${bgClass} ${fontClass} transition-colors duration-500`}>
       <div className="container mx-auto max-w-xl px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent text-center">
+        <h2 className={`text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent text-center ${fgClass}`}>
           {t.title}
         </h2>
         <p className="mb-6 text-muted-foreground text-center">

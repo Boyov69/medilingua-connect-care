@@ -18,6 +18,12 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Roboto', 'ui-sans-serif', 'system-ui'],
+				serif: ['Playfair Display', 'serif'],
+				cyrillic: ['Noto Sans Cyrillic', 'Arial', 'sans-serif'],
+				armenian: ['Noto Sans Armenian', 'Arial', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
