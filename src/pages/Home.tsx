@@ -53,22 +53,22 @@ const Home = () => {
                 <UserPlus className="w-6 h-6 text-sky-600 dark:text-sky-300" />
               </div>
               <CardTitle className="text-2xl font-bold text-sky-900 dark:text-sky-200">
-                {availabilityFeature.title}
+                {availabilityFeature?.title}
               </CardTitle>
               <CardDescription className="text-sky-700 dark:text-sky-300">
-                {availabilityFeature.subtitle}
+                {availabilityFeature?.subtitle}
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
               <p className="mb-6 text-muted-foreground">
-                {availabilityFeature.description}
+                {availabilityFeature?.description}
               </p>
               <Link 
                 to="/find-doctors?availability=available" 
                 className="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-sky-500 to-teal-400 text-white rounded-full font-medium hover:from-sky-600 hover:to-teal-500 transition-all shadow-md dark:from-sky-600 dark:to-teal-500 dark:hover:from-sky-700 dark:hover:to-teal-600"
               >
                 <Search className="mr-2 w-4 h-4" />
-                {availabilityFeature.cta}
+                {availabilityFeature?.cta}
               </Link>
             </CardContent>
           </Card>

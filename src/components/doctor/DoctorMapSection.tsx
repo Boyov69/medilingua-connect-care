@@ -20,7 +20,7 @@ const DoctorMapSection = ({ doctors, searchParams }: DoctorMapSectionProps) => {
   const { language } = useLanguage();
   
   const t = translations[language]?.findDoctors || {};
-  const mapTranslations = t.map || {};
+  const mapTranslations = t?.map || {};
   
   const saveApiKey = () => {
     if (!apiKeyInput.trim()) {
