@@ -1,3 +1,4 @@
+
 const hy = {
   home: {
     welcome: "Բարի գալուստ MediLingua",
@@ -34,6 +35,10 @@ const hy = {
     specialtyPlaceholder: "Մասնագիտություն",
     language: "Լեզու",
     searchResults: "Որոնման արդյունքները կհայտնվեն այստեղ:"
+  },
+  languageSelector: {
+    tooltip: "Ընտրեք ձեր նախընտրած լեզուն: Սա փոխում է կայքի լեզուն:",
+    ariaLabel: "Ընտրեք լեզուն"
   }
 };
 export default hy;

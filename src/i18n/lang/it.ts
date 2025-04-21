@@ -1,3 +1,4 @@
+
 const it = {
   home: {
     welcome: "Benvenuto su MediLingua",
@@ -34,6 +35,10 @@ Supportiamo olandese, inglese, francese, italiano, russo, armeno, bulgaro e turc
     specialtyPlaceholder: "Specializzazione",
     language: "Lingua",
     searchResults: "I risultati della ricerca appariranno qui."
+  },
+  languageSelector: {
+    tooltip: "Seleziona la tua lingua preferita. Questo cambierà la lingua del sito web.",
+    ariaLabel: "Seleziona lingua"
   }
 };
 export default it;

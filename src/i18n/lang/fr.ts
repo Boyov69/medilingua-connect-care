@@ -1,3 +1,4 @@
+
 const fr = {
   home: {
     welcome: "Bienvenue sur MediLingua",
@@ -34,6 +35,10 @@ Disponible en néerlandais, anglais, français, italien, russe, arménien, bulga
     specialtyPlaceholder: "Spécialité",
     language: "Langue",
     searchResults: "Les résultats de recherche apparaîtront ici."
+  },
+  languageSelector: {
+    tooltip: "Sélectionnez votre langue préférée. Cela change la langue du site web.",
+    ariaLabel: "Sélectionner la langue"
   }
 };
 export default fr;

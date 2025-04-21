@@ -35,6 +35,10 @@ With support for Dutch, English, French, Italian, Russian, Armenian, Bulgarian, 
     specialtyPlaceholder: "Specialty",
     language: "Language",
     searchResults: "Search results will appear here."
+  },
+  languageSelector: {
+    tooltip: "Select your preferred language. This changes the website's language.",
+    ariaLabel: "Select language"
   }
 };
 export default en;

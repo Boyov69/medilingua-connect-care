@@ -1,3 +1,4 @@
+
 const nl = {
   home: {
     welcome: "Welkom bij MediLingua",
@@ -34,6 +35,10 @@ Met ondersteuning voor Nederlands, Engels, Frans, Italiaans, Russisch, Armeens, 
     specialtyPlaceholder: "Specialisatie",
     language: "Taal",
     searchResults: "Zoekresultaten verschijnen hier."
+  },
+  languageSelector: {
+    tooltip: "Selecteer uw voorkeurstaal. Dit verandert de taal van de website.",
+    ariaLabel: "Taal selecteren"
   }
 };
 export default nl;

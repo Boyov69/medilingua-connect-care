@@ -2,6 +2,7 @@
 import { Languages } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
+import { translations } from "@/i18n/translations";
 
 const LANGUAGES = [
   { code: "en", label: "English" },
@@ -16,6 +17,8 @@ const LANGUAGES = [
 
 export default function LanguageSelector() {
   const { language, setLanguage } = useLanguage();
+  const t = translations[language];
+  
   return (
     <TooltipProvider delayDuration={250}>
       <Tooltip>
@@ -26,7 +29,7 @@ export default function LanguageSelector() {
               className="bg-white/70 border rounded-full px-3 py-1 text-sm outline-none shadow focus:ring-2 focus:ring-primary transition-all duration-200"
               value={language}
               onChange={e => setLanguage(e.target.value as any)}
-              aria-label="Taal selecteren"
+              aria-label={t.languageSelector?.ariaLabel || "Select language"}
             >
               {LANGUAGES.map(lang => (
                 <option key={lang.code} value={lang.code}>
@@ -37,7 +40,7 @@ export default function LanguageSelector() {
           </div>
         </TooltipTrigger>
         <TooltipContent side="bottom" className="max-w-xs text-center">
-          Selecteer uw voorkeurstaal.<br />Dit verandert de taal van de website.
+          {t.languageSelector?.tooltip || "Select your preferred language. This changes the website's language."}
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

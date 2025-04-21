@@ -1,3 +1,4 @@
+
 const bg = {
   home: {
     welcome: "Добре дошли в MediLingua",
@@ -34,6 +35,10 @@ const bg = {
     specialtyPlaceholder: "Специалност",
     language: "Език",
     searchResults: "Резултатите от търsenето ще се появят тук."
+  },
+  languageSelector: {
+    tooltip: "Изберете предпочитания от вас език. Това променя езика на уебсайта.",
+    ariaLabel: "Изберете език"
   }
 };
 export default bg;

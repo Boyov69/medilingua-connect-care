@@ -1,3 +1,4 @@
+
 const tr = {
   home: {
     welcome: "MediLingua'ya Hoş Geldiniz",
@@ -34,6 +35,10 @@ Felemenkçe, İngilizce, Fransızca, İtalyanca, Rusça, Ermenice, Bulgarca ve T
     specialtyPlaceholder: "Uzmanlık",
     language: "Dil",
     searchResults: "Arama sonuçları burada görünecek."
+  },
+  languageSelector: {
+    tooltip: "Tercih ettiğiniz dili seçin. Bu, web sitesinin dilini değiştirir.",
+    ariaLabel: "Dil seçin"
   }
 };
 export default tr;

@@ -1,3 +1,4 @@
+
 const ru = {
   home: {
     welcome: "Добро пожаловать в MediLingua",
@@ -34,6 +35,10 @@ const ru = {
     specialtyPlaceholder: "Специальность",
     language: "Язык",
     searchResults: "Результаты поиска появятся здесь."
+  },
+  languageSelector: {
+    tooltip: "Выберите предпочитаемый язык. Это изменит язык веб-сайта.",
+    ariaLabel: "Выбрать язык"
   }
 };
 export default ru;
