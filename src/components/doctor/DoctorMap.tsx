@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { Doctor } from "@/types/doctor";
 import { MapPin } from "lucide-react";
@@ -15,17 +14,18 @@ const DoctorMap = ({ doctors, center, apiKey }: DoctorMapProps) => {
   const [markers, setMarkers] = useState<google.maps.Marker[]>([]);
   const [mapLoaded, setMapLoaded] = useState(false);
 
-  // Laad de Google Maps script
+  // Load the Google Maps script
   useEffect(() => {
     if (!apiKey) return;
     
-    // Voorkom meerdere laadoperaties
+    // Prevent multiple loading operations
     if (window.google?.maps || document.querySelector('script[src*="maps.googleapis.com/maps/api"]')) {
       setMapLoaded(true);
       return;
     }
 
     const script = document.createElement("script");
+    // Fix: Remove the "GOOGLE MAP API" text from the key
     script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
     script.async = true;
     script.defer = true;
@@ -34,15 +34,15 @@ const DoctorMap = ({ doctors, center, apiKey }: DoctorMapProps) => {
     document.head.appendChild(script);
     
     return () => {
-      // Cleanup is optioneel, maar kan handig zijn in sommige gevallen
+      // Cleanup is optional but can be useful in some cases
       const scriptElement = document.querySelector('script[src*="maps.googleapis.com/maps/api"]');
       if (scriptElement) {
-        // scriptElement.remove(); // Uncomment om script te verwijderen bij unmount
+        // scriptElement.remove(); // Uncomment to remove script on unmount
       }
     };
   }, [apiKey]);
 
-  // Initialiseer de kaart wanneer de script geladen is
+  // Initialize the map when the script is loaded
   useEffect(() => {
     if (!mapLoaded || !mapRef.current || map) return;
 
@@ -67,7 +67,7 @@ const DoctorMap = ({ doctors, center, apiKey }: DoctorMapProps) => {
     setMap(newMap);
   }, [mapLoaded, center, map]);
 
-  // Update markers wanneer artsen of kaart veranderen
+  // Update markers when doctors or map change
   useEffect(() => {
     if (!map || !doctors.length) return;
     

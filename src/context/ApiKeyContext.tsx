@@ -14,14 +14,16 @@ const ApiKeyContext = createContext<ApiKeyContextType>({
 export const useApiKey = () => useContext(ApiKeyContext);
 
 export const ApiKeyProvider = ({ children }: { children: ReactNode }) => {
-  // Probeer de API key uit localStorage te halen als die er is
+  // Get API key from localStorage if available
   const [googleMapsApiKey, setGoogleMapsApiKey] = useState<string>(
     typeof window !== 'undefined' ? localStorage.getItem("googleMapsApiKey") || "" : ""
   );
 
   const handleSetGoogleMapsApiKey = (key: string) => {
-    setGoogleMapsApiKey(key);
-    localStorage.setItem("googleMapsApiKey", key);
+    // Ensure the key doesn't contain any unwanted text
+    const cleanedKey = key.trim();
+    setGoogleMapsApiKey(cleanedKey);
+    localStorage.setItem("googleMapsApiKey", cleanedKey);
   };
 
   return (

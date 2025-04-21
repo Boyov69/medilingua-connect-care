@@ -19,8 +19,8 @@ const DoctorMapSection = ({ doctors, searchParams }: DoctorMapSectionProps) => {
   const [apiKeyInput, setApiKeyInput] = useState("");
   const { language } = useLanguage();
   
-  // Since this component doesn't have specific translations yet, we'll add them later
-  // For now using generic translations
+  const t = translations[language]?.findDoctors || {};
+  const mapTranslations = t.map || {};
   
   const saveApiKey = () => {
     if (!apiKeyInput.trim()) {
