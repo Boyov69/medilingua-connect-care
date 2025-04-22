@@ -21,7 +21,10 @@ export const ApiKeyProvider = ({ children }: { children: ReactNode }) => {
 
   const handleSetGoogleMapsApiKey = (key: string) => {
     // Clean the API key by removing any additional text
-    const cleanKey = key.replace(/\s+.*$/, '').trim();
+    // Extract only the key part - assume it's alphanumeric and may include - and _
+    const keyMatch = key.match(/[A-Za-z0-9\-_]+/);
+    const cleanKey = keyMatch ? keyMatch[0] : '';
+    
     setGoogleMapsApiKey(cleanKey);
     localStorage.setItem("googleMapsApiKey", cleanKey);
   };
